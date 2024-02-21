@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nannan.questionlibrary.model.Questions;
@@ -20,6 +21,12 @@ QuestionService questionService;
     @GetMapping("allQuestion")
     public List<Questions> getAllQuestions(){
         return questionService.getAllQuestion();
+        
+    }
+
+    @GetMapping("getByCategory")
+    public List<Questions> getQuestionsByCategory(@RequestParam("category") String category){
+        return questionService.getQuestionsByCategory(category);
         
     }
 }

@@ -1,22 +1,21 @@
 package com.nannan.questionlibrary.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
 @Entity
-@Table (name = "questions", schema = "public")
 public class Questions {
     @Id
-    @Column(name="ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String Category;
+    private String category;
     private String difficulty;
-    private String question;
+    private String questionDescription;
     private String option1;
     private String option2;
     private String option3;
